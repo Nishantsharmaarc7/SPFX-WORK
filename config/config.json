@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "project-1-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/project1/Project1WebPart.js",
+          "manifest": "./src/webparts/project1/Project1WebPart.manifest.json"
+        }
+      ]
+    },
+    "property-pane-wp-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/propertyPaneWp/PropertyPaneWpWebPart.js",
+          "manifest": "./src/webparts/propertyPaneWp/PropertyPaneWpWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "Project1WebPartStrings": "lib/webparts/project1/loc/{locale}.js",
+    "PropertyPaneWpWebPartStrings": "lib/webparts/propertyPaneWp/loc/{locale}.js"
+  }
+}
