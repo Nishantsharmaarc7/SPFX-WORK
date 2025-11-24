@@ -23,9 +23,6 @@ export interface ISharePointListItem {
 export interface ISharePointLists {
   value: ISharePointListItem[];
 }
-//
-
-
 
 export interface IProject1WebPartProps {
   description: string;
@@ -34,13 +31,13 @@ export interface IProject1WebPartProps {
 
 export default class Project1WebPart extends BaseClientSideWebPart<IProject1WebPartProps> {
 
-//  private _isDarkTheme: boolean = false;
-//  private _environmentMessage: string = '';
+ private _isDarkTheme: boolean = false;
+ private _environmentMessage: string = '';
 
 
-//1.3 Creating a Function for Call to the RESTFUL API service
-  // Calling our api while proving SPHttpClient.configurations.v1
-  // In then() returning response.json through a anonymous function
+// 1.3 Creating a Function for Call to the RESTFUL API service
+//   Calling our api while proving SPHttpClient.configurations.v1
+//   In then() returning response.json through a anonymous function
 
 private getListofLists():Promise<ISharePointLists>{
     return this.context.spHttpClient.get("https://deadpoet.sharepoint.com/sites/Dev01/_api/web/lists?$filter-Hidden eq false",SPHttpClient.configurations.v1)
@@ -49,7 +46,7 @@ private getListofLists():Promise<ISharePointLists>{
     })
     } 
 
-//Step 2: Creating a function for calling and render based on the received value.
+// Step 2: Creating a function for calling and render based on the received value.
 private getAndRenderList() :void{
   this.getListofLists().then((response)=>{
     this.renderListofLists(response)
@@ -58,7 +55,7 @@ private getAndRenderList() :void{
 }
 
 
-//Step 3: Creating a function for Rendering the received Data
+// Step 3: Creating a function for Rendering the received Data
 // providing the input
   private renderListofLists(items: ISharePointLists) :void{
       let html : string = `<table class= "${styles.table}" >
@@ -112,10 +109,10 @@ private getAndRenderList() :void{
       return;
     }
 
-//    this._isDarkTheme = !!currentTheme.isInverted;
-    const {
-      semanticColors
-    } = currentTheme;
+   this._isDarkTheme = !!currentTheme.isInverted;
+const {
+  semanticColors
+} = currentTheme;
 
     if (semanticColors) {
       this.domElement.style.setProperty('--bodyText', semanticColors.bodyText || null);
